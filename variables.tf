@@ -28,29 +28,11 @@ variable "db_subnet_prefix" {
   default     = ["10.0.2.0/24"]
 }
 
-variable "vm_admin_username" {
-  description = "Admin username for VMs"
-  type        = string
-  default     = "adminuser"
-}
-
 variable "sql_connection_policy" {
   description = "The connection policy the server will use"
   default     = "Default"
   type        = string
 }
-
-# variable "sql_admin_login" {
-#   description = "Admin login for SQL Server"
-#   type        = string
-#   default     = "sqladmin"
-# }
-
-# variable "sql_admin_password" {
-#   description = "Admin password for SQL Server"
-#   type        = string
-#   sensitive   = true
-# }
 
 variable "subscription_id" {
   description = "Azure Subscription ID"
