@@ -1,4 +1,8 @@
 
+### Test to check the connectivity.
+### Upload test script in Blob storage container
+
+# Create storage account
 resource "azurerm_storage_account" "scripts" {
   name                     = "webapp${random_string.suffix.result}scripts"
   resource_group_name      = azurerm_resource_group.rg.name
@@ -7,6 +11,7 @@ resource "azurerm_storage_account" "scripts" {
   account_replication_type = "LRS"
 }
 
+# Create storage account container
 resource "azurerm_storage_container" "scripts" {
   name                  = "scripts"
   storage_account_name  = azurerm_storage_account.scripts.name
@@ -28,7 +33,7 @@ resource "azurerm_storage_blob" "setup_script" {
   })
 }
 
-
+# Run custom script VMSS extention
 resource "azurerm_virtual_machine_scale_set_extension" "custom_script" {
   name                         = "webapp-extension"
   virtual_machine_scale_set_id = azurerm_linux_virtual_machine_scale_set.web_vmss.id
