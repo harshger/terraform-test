@@ -50,14 +50,11 @@ When prompted, type yes to confirm the deployment.
 
 ### Important Notes
 
-```json
-
 1. The SQL Server is deployed with private endpoint access only
 2. VM Scale Set instances are accessible through the load balancer
 3. All sensitive credentials are stored in Key Vault
 4. The load balancer's public IP address will be shown in the outputs
-```
-SSH private key for VMs is stored in Key Vault
+5. SSH private key for VMs is stored in Key Vault -> give access to your account via Access policy or RBAC
 
 ### Accessing Resources
 After deployment, you can get important information using:
@@ -68,12 +65,11 @@ terraform output
 
 This will show:
 
-```json
-Resource group name
-Key Vault name and URI
-SQL Server private endpoint IP
-Load balancer public IP address
-```
+1. Resource group name
+2. Key Vault name and URI
+3. SQL Server private endpoint IP
+4. Load balancer public IP address
+
 
 ## Test
 
